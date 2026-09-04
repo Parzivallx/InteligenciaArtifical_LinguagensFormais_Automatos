@@ -1,554 +1,604 @@
-O ChatGPT disse:
-Claro. O ponto é: você quer o conteúdo em Markdown cru, com os # aparecendo, para copiar e colar. Então não vou colocar um bloco de código envolvendo tudo.
+# 📚 AULA 1 — LINGUAGENS FORMAIS E GRAMÁTICAS
 
-📚 AULA 1 — LINGUAGENS FORMAIS E GRAMÁTICAS
-Data: 10/08/2026
+**Data:** 10/08/2026
 
-🟦 ATIVIDADE 1 — PREFIXOS E SUFIXOS
+---
+
+# 🟦 ATIVIDADE 1 — PREFIXOS E SUFIXOS
+
 Considere a palavra:
 
-ab
+`ab`
 
-❓ Pergunta
+## ❓ Pergunta
+
 Liste os prefixos e os sufixos da palavra.
 
-✅ RESPOSTA
-PREFIXOS
+## ✅ RESPOSTA
+
+### PREFIXOS
+
 Os prefixos são as partes que começam no início da palavra.
 
-{ε, a, ab}
+`{ε, a, ab}`
 
-SUFIXOS
+### SUFIXOS
+
 Os sufixos são as partes que terminam no final da palavra.
 
-{ε, b, ab}
+`{ε, b, ab}`
 
-💡 Explicando
-ε representa a palavra vazia.
-a é prefixo porque começa a palavra.
-ab é prefixo porque é a palavra inteira.
-b é sufixo porque está no final da palavra.
-ab também é sufixo porque a palavra inteira pode ser considerada um sufixo.
-🟦 ATIVIDADE 2 — GRAMÁTICA
+### 💡 Explicando
+
+- `ε` representa a palavra vazia.
+- `a` é prefixo porque começa a palavra.
+- `ab` é prefixo porque é a palavra inteira.
+- `b` é sufixo porque está no final da palavra.
+- `ab` também é sufixo porque a palavra inteira pode ser considerada um sufixo.
+
+---
+
+# 🟦 ATIVIDADE 2 — GRAMÁTICA
+
 Considere:
 
-G = ({S}, {a}, {S → aS | ε}, S)
+`G = ({S}, {a}, {S → aS | ε}, S)`
 
-❓ Pergunta
+## ❓ Pergunta
+
 Liste 3 palavras que podem ser geradas por essa gramática.
 
-✅ RESPOSTA
+## ✅ RESPOSTA
+
 Uma possibilidade é:
 
-ε
-a
-aa
-🔎 Derivação
-Para gerar ε:
+- `ε`
+- `a`
+- `aa`
 
-S → ε
+### 🔎 Derivação
 
-Para gerar a:
+Para gerar `ε`:
 
-S → aS → aε → a
+`S → ε`
 
-Para gerar aa:
+Para gerar `a`:
 
-S → aS → aaS → aaε → aa
+`S → aS → aε → a`
+
+Para gerar `aa`:
+
+`S → aS → aaS → aaε → aa`
 
 Então algumas palavras geradas são:
 
-ε
-a
-aa
-Também poderiam ser geradas outras palavras:
+- `ε`
+- `a`
+- `aa`
 
-aaa
-aaaa
-aaaaa
-...
+Também poderiam ser geradas outras palavras, por exemplo:
+
+- `aaa`
+- `aaaa`
+- `aaaaa`
+- `...`
+
 Isso acontece porque a regra:
 
-S → aS
+`S → aS`
 
 pode ser aplicada várias vezes antes de usar:
 
-S → ε
+`S → ε`
 
-📖 13. RESUMO PARA PROVA
-🔤 ALFABETO
-Σ representa o conjunto de símbolos que podem ser usados.
+---
 
-Exemplo
-Σ = {a, b}
+# 📖 13. RESUMO PARA PROVA
+
+# 🔤 ALFABETO
+
+`Σ` representa o conjunto de símbolos que podem ser usados.
+
+## Exemplo
+
+`Σ = {a, b}`
 
 Nesse caso, os símbolos do alfabeto são:
 
-a
-b
-📝 CADEIA OU PALAVRA
+- `a`
+- `b`
+
+---
+
+# 📝 CADEIA OU PALAVRA
+
 É uma sequência de símbolos que pertencem ao alfabeto.
 
 Por exemplo, considerando:
 
-Σ = {a, b}
+`Σ = {a, b}`
 
 A sequência:
 
-ab
+`ab`
 
 é uma palavra válida porque os dois símbolos pertencem ao alfabeto.
 
-a ∈ Σ
+`a ∈ Σ`
 
-b ∈ Σ
+`b ∈ Σ`
 
 Portanto:
 
-ab ∈ Σ*
+`ab ∈ Σ*`
 
-⭕ PALAVRA VAZIA
+---
+
+# ⭕ PALAVRA VAZIA
+
 A palavra vazia é representada por:
 
-ε
+`ε`
 
 Ela não possui nenhum símbolo.
 
 Por isso:
 
-|ε| = 0
+`|ε| = 0`
 
-⚠️ Atenção
+## ⚠️ Atenção
+
 A palavra vazia é uma palavra, mesmo não possuindo símbolos.
 
 Ela não deve ser confundida com o conjunto vazio:
 
-∅
+`∅`
 
 Temos:
 
-ε → palavra vazia
-∅ → conjunto vazio
-⭐ SIGMA*
-Σ* representa o conjunto de todas as cadeias finitas que podem ser formadas usando os símbolos de Σ.
+- `ε` → palavra vazia
+- `∅` → conjunto vazio
+
+---
+
+# ⭐ SIGMA*
+
+`Σ*` representa o conjunto de todas as cadeias finitas que podem ser formadas usando os símbolos de `Σ`.
 
 Também inclui a palavra vazia.
 
-Exemplo
+## Exemplo
+
 Se:
 
-Σ = {a, b}
+`Σ = {a, b}`
 
 Então:
 
-Σ* = {ε, a, b, aa, ab, ba, bb, aaa, aab, ...}
+`Σ* = {ε, a, b, aa, ab, ba, bb, aaa, aab, ...}`
 
-💡 Importante
-O símbolo * significa que podemos formar palavras de diferentes tamanhos, incluindo tamanho 0.
+## 💡 Importante
+
+O símbolo `*` significa que podemos formar palavras de diferentes tamanhos, incluindo tamanho `0`.
 
 Por isso:
 
-ε ∈ Σ*
+`ε ∈ Σ*`
 
-🌐 LINGUAGEM
+---
+
+# 🌐 LINGUAGEM
+
 Uma linguagem é um conjunto de cadeias.
 
 Podemos representar por:
 
-L ⊆ Σ*
+`L ⊆ Σ*`
 
-Isso significa que todas as palavras da linguagem pertencem a Σ*.
+Isso significa que todas as palavras da linguagem pertencem a `Σ*`.
 
-Exemplo
+## Exemplo
+
 Considere:
 
-Σ = {a, b}
+`Σ = {a, b}`
 
 Uma possível linguagem é:
 
-L = {a, ab, abb, abbb}
+`L = {a, ab, abb, abbb}`
 
 Nesse caso:
 
-L ⊆ Σ*
+`L ⊆ Σ*`
 
-porque todas as palavras de L são formadas usando apenas símbolos de Σ.
+porque todas as palavras de `L` são formadas usando apenas símbolos de `Σ`.
 
-🔵 PREFIXO
+---
+
+# 🔵 PREFIXO
+
 Prefixo é uma parte da palavra que começa no primeiro símbolo.
 
 Considerando:
 
-ab
+`ab`
 
 Os prefixos são:
 
-{ε, a, ab}
+`{ε, a, ab}`
 
-Exemplos
-ε é o prefixo vazio.
-a é prefixo porque começa no primeiro símbolo.
-ab é prefixo porque é a palavra inteira.
-🧠 Regra para lembrar
-PREFIXO → começa no início da palavra.
+## Exemplos
 
-🟢 SUFIXO
+- `ε` é o prefixo vazio.
+- `a` é prefixo porque começa no primeiro símbolo.
+- `ab` é prefixo porque é a palavra inteira.
+
+## 🧠 Regra para lembrar
+
+> **PREFIXO → começa no início da palavra.**
+
+---
+
+# 🟢 SUFIXO
+
 Sufixo é uma parte da palavra que termina no último símbolo.
 
 Considerando:
 
-ab
+`ab`
 
 Os sufixos são:
 
-{ε, b, ab}
+`{ε, b, ab}`
 
-Exemplos
-ε é o sufixo vazio.
-b está no final da palavra.
-ab é sufixo porque é a palavra inteira.
-🧠 Regra para lembrar
-SUFIXO → termina no final da palavra.
+## Exemplos
 
-🧠 PREFIXO × SUFIXO
+- `ε` é o sufixo vazio.
+- `b` está no final da palavra.
+- `ab` é sufixo porque é a palavra inteira.
+
+## 🧠 Regra para lembrar
+
+> **SUFIXO → termina no final da palavra.**
+
+---
+
+# 🧠 PREFIXO × SUFIXO
+
 Para a palavra:
 
-ab
+`ab`
 
 Temos:
 
-Tipo	Conjunto
-Prefixos	{ε, a, ab}
-Sufixos	{ε, b, ab}
+| Tipo | Conjunto |
+|---|---|
+| Prefixos | `{ε, a, ab}` |
+| Sufixos | `{ε, b, ab}` |
 
-💡 Forma fácil de lembrar
-PREFIXO → olha o começo
+## 💡 Forma fácil de lembrar
 
-SUFIXO → olha o final
+`PREFIXO → olha o começo`
 
-⚙️ GRAMÁTICA
+`SUFIXO → olha o final`
+
+---
+
+# ⚙️ GRAMÁTICA
+
 Uma gramática é usada para definir regras que permitem gerar palavras de uma linguagem.
 
 Um exemplo é:
 
-S → aS | ε
+`S → aS | ε`
 
-Nesse caso, podemos começar com S e ir aplicando as regras até chegar em uma palavra formada somente por símbolos terminais.
+Nesse caso, podemos começar com `S` e ir aplicando as regras até chegar em uma palavra formada somente por símbolos terminais.
 
-Exemplo
-S
+## Exemplo
 
-↓
-
-aS
-
-↓
-
-aaS
-
-↓
-
-aaaS
-
-↓
-
-aaaε
-
-↓
-
-aaa
+`S → aS → aaS → aaaS → aaaε → aaa`
 
 Portanto:
 
-aaa
+`aaa`
 
 é uma palavra gerada pela gramática.
 
-➡️ SÍMBOLO →
+---
+
+# ➡️ SÍMBOLO `→`
+
 Nas gramáticas, o símbolo:
 
-→
+`→`
 
 indica uma produção ou regra de produção.
 
 Por exemplo:
 
-S → aS
+`S → aS`
 
 Podemos ler como:
 
-"S produz aS"
+> "S produz aS"
 
 ou:
 
-"S pode ser substituído por aS".
+> "S pode ser substituído por aS".
 
-Exemplo de aplicação
+## Exemplo de aplicação
+
 Se temos:
 
-S → aS
+`S → aS`
 
 e começamos com:
 
-S
+`S`
 
 podemos fazer:
 
-S → aS
+`S → aS`
 
-🔀 SÍMBOLO |
+---
+
+# 🔀 SÍMBOLO `|`
+
 Nas regras de produção, o símbolo:
 
-|
+`|`
 
-significa "ou".
+significa **"ou"**.
 
 Por exemplo:
 
-S → aS | ε
+`S → aS | ε`
 
 Significa que existem duas possibilidades:
 
-S → aS
+`S → aS`
 
 OU
 
-S → ε
+`S → ε`
 
-Portanto
+## Portanto
+
 A regra:
 
-S → aS | ε
+`S → aS | ε`
 
 pode ser entendida como:
 
-S pode ser substituído por aS ou por ε.
+> `S` pode ser substituído por `aS` ou por `ε`.
 
-🔎 EXEMPLO COMPLETO DA GRAMÁTICA
+---
+
+# 🔎 EXEMPLO COMPLETO DA GRAMÁTICA
+
 Considere:
 
-S → aS | ε
+`S → aS | ε`
 
 Podemos escolher:
 
-S → ε
+`S → ε`
 
 Resultado:
 
-ε
+`ε`
 
 Ou podemos escolher:
 
-S → aS
+`S → aS`
 
 Depois:
 
-S → aS → aaS → aaaS → aaaε → aaa
+`S → aS → aaS → aaaS → aaaε → aaa`
 
 Também podemos gerar:
 
-a
-aa
-aaa
-aaaa
-aaaaa
-...
-Portanto, essa gramática gera todas as palavras formadas por zero ou mais a.
+- `a`
+- `aa`
+- `aaa`
+- `aaaa`
+- `aaaaa`
+- `...`
+
+Portanto, essa gramática gera todas as palavras formadas por zero ou mais `a`.
 
 Podemos representar a linguagem gerada por:
 
-L = {aⁿ | n ≥ 0}
+`L = {aⁿ | n ≥ 0}`
 
 Ou, usando expressão regular:
 
-a*
+`a*`
 
-⚠️ OBSERVAÇÃO SOBRE O SÍMBOLO →
+---
+
+# ⚠️ OBSERVAÇÃO SOBRE O SÍMBOLO `→`
+
 Em outros assuntos da matemática e da lógica, o símbolo:
 
-→
+`→`
 
 pode ter outros significados.
 
 Por exemplo, em lógica pode representar:
 
-implica
+> **implica**
 
 ou:
 
-se... então
+> **se... então**
 
-Mas, quando estamos trabalhando com gramáticas, normalmente estamos usando → para indicar uma regra de produção.
+Mas, quando estamos trabalhando com gramáticas, normalmente estamos usando `→` para indicar uma regra de produção.
 
-Exemplo
+## Exemplo
+
 Na gramática:
 
-S → aS
+`S → aS`
 
-o símbolo → significa:
+o símbolo `→` significa:
 
-"S pode ser substituído por aS."
+> "`S` pode ser substituído por `aS`."
 
-🧩 ESTRUTURA DE UMA GRAMÁTICA
+---
+
+# 🧩 ESTRUTURA DE UMA GRAMÁTICA
+
 Uma gramática pode ser representada por:
 
-G = (V, T, P, S)
+`G = (V, T, P, S)`
 
 Onde:
 
-Símbolo	Significado
-G	Gramática
-V	Conjunto de variáveis ou não terminais
-T	Conjunto de terminais
-P	Conjunto de produções
-S	Símbolo inicial
+| Símbolo | Significado |
+|---|---|
+| `G` | Gramática |
+| `V` | Conjunto de variáveis ou não terminais |
+| `T` | Conjunto de terminais |
+| `P` | Conjunto de produções |
+| `S` | Símbolo inicial |
 
-Exemplo
-G = ({S}, {a}, {S → aS | ε}, S)
+## Exemplo
+
+`G = ({S}, {a}, {S → aS | ε}, S)`
 
 Nesse exemplo:
 
-V = {S}
+`V = {S}`
 
-T = {a}
+`T = {a}`
 
-P = {S → aS | ε}
+`P = {S → aS | ε}`
 
-S = símbolo inicial
+`S = símbolo inicial`
 
-🧠 RESUMO RÁPIDO PARA A PROVA
-Σ
-↓
-Alfabeto
-↓
-Conjunto de símbolos
+---
 
-PALAVRA
-↓
-Sequência de símbolos
+# 🧠 RESUMO RÁPIDO PARA A PROVA
 
-ε
-↓
-Palavra vazia
-↓
-|ε| = 0
+| Conceito | Significado |
+|---|---|
+| `Σ` | Alfabeto |
+| Palavra | Sequência de símbolos |
+| `ε` | Palavra vazia |
+| `|ε|` | Comprimento da palavra vazia, igual a 0 |
+| `Σ*` | Todas as palavras possíveis |
+| `L` | Linguagem |
+| `L ⊆ Σ*` | Linguagem formada por palavras de `Σ*` |
+| Prefixo | Começa no início |
+| Sufixo | Termina no final |
+| `G` | Gramática |
+| `V` | Variáveis |
+| `T` | Terminais |
+| `P` | Produções |
+| `S` | Símbolo inicial |
+| `→` | Regra de produção |
+| `|` | OU |
+| Derivação | Aplicação das regras para gerar uma palavra |
 
-Σ*
-↓
-Todas as palavras possíveis
-↓
-Inclui ε
+---
 
-LINGUAGEM
-↓
-Conjunto de palavras
-↓
-L ⊆ Σ*
+# 🎯 DICAS PARA NÃO CONFUNDIR
 
-PREFIXO
-↓
-Começa no início da palavra
+- **Alfabeto** → conjunto de símbolos.
+- **Palavra** → sequência de símbolos.
+- **Linguagem** → conjunto de palavras.
+- **Prefixo** → começa no início.
+- **Sufixo** → termina no final.
+- **ε** → palavra vazia.
+- **Σ*** → todas as palavras possíveis.
+- **→** → regra de produção.
+- **|** → OU.
+- **Gramática** → conjunto de regras para gerar palavras.
 
-SUFIXO
-↓
-Termina no final da palavra
+---
 
-GRAMÁTICA
-↓
-Conjunto de regras
-↓
-Gera palavras
+# 🏆 EXEMPLO FINAL
 
-→
-↓
-Regra de produção
-
-|
-↓
-OU
-
-🎯 DICAS PARA NÃO CONFUNDIR
-Conceito	Lembrete
-Alfabeto	Conjunto de símbolos
-Palavra	Sequência de símbolos
-Linguagem	Conjunto de palavras
-Prefixo	Começa no início
-Sufixo	Termina no final
-ε	Palavra vazia
-Σ*	Todas as palavras possíveis
-→	Regra de produção
-**`	`**
-Gramática	Regras para gerar palavras
-
-🏆 EXEMPLO FINAL
 Considere:
 
-Σ = {a, b}
+`Σ = {a, b}`
 
 A palavra:
 
-ab
+`ab`
 
 possui:
 
-Prefixos
-{ε, a, ab}
+## Prefixos
 
-Sufixos
-{ε, b, ab}
+`{ε, a, ab}`
 
-Como a e b pertencem ao alfabeto:
+## Sufixos
 
-a ∈ Σ
+`{ε, b, ab}`
 
-b ∈ Σ
+Como `a` e `b` pertencem ao alfabeto:
+
+`a ∈ Σ`
+
+`b ∈ Σ`
 
 a palavra:
 
-ab
+`ab`
 
 pertence a:
 
-Σ*
+`Σ*`
 
 Se tivermos a gramática:
 
-S → aS | ε
+`S → aS | ε`
 
 podemos gerar:
 
-ε
-a
-aa
-aaa
-aaaa
-aaaaa
-...
+- `ε`
+- `a`
+- `aa`
+- `aaa`
+- `aaaa`
+- `aaaaa`
+- `...`
+
 Portanto, a ideia principal da aula é:
 
-Um alfabeto possui símbolos. Símbolos formam palavras. Palavras formam linguagens. Gramáticas utilizam regras para gerar palavras.
+> **Um alfabeto possui símbolos. Símbolos formam palavras. Palavras formam linguagens. Gramáticas utilizam regras para gerar palavras.**
 
-🚀 RESUMÃO
-Conceito	O que significa
-Σ	Alfabeto
-a, b, 0, 1	Símbolos
-ab	Palavra
-ε	Palavra vazia
-Σ*	Todas as palavras possíveis
-L	Linguagem
-L ⊆ Σ*	Linguagem formada por palavras de Σ*
-Prefixo	Parte que começa no início
-Sufixo	Parte que termina no final
-G	Gramática
-V	Variáveis
-T	Terminais
-P	Produções
-S	Símbolo inicial
-→	Regra de produção
-`	`
-Derivação	Aplicação das regras para gerar uma palavra
+---
 
-📌 FRASE PARA DECORAR
-Alfabeto → símbolos → palavras → linguagens.
+# 🚀 RESUMÃO
 
-Gramática → regras → derivações → palavras.
+| Conceito | O que significa |
+|---|---|
+| `Σ` | Alfabeto |
+| `a`, `b`, `0`, `1` | Símbolos |
+| `ab` | Palavra |
+| `ε` | Palavra vazia |
+| `Σ*` | Todas as palavras possíveis |
+| `L` | Linguagem |
+| `L ⊆ Σ*` | Linguagem formada por palavras de `Σ*` |
+| Prefixo | Parte que começa no início |
+| Sufixo | Parte que termina no final |
+| `G` | Gramática |
+| `V` | Variáveis |
+| `T` | Terminais |
+| `P` | Produções |
+| `S` | Símbolo inicial |
+| `→` | Regra de produção |
+| `|` | OU |
+| Derivação | Aplicação das regras para gerar uma palavra |
+
+---
+
+# 📌 FRASES PARA DECORAR
+
+> **Alfabeto → símbolos → palavras → linguagens.**
+
+> **Gramática → regras → derivações → palavras.**
+```
