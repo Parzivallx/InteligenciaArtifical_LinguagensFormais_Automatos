@@ -1,6 +1,4 @@
-Sim. Vou colocar **o conteúdo completo**, desde o início até o final, em **Markdown puro para GitHub**, com todos os `#`, `##`, tabelas e blocos de código. Removi os `id="..."`, que estavam quebrando a formatação.
 
-````
 # 📚 EXERCÍCIOS — LINGUAGENS FORMAIS E AUTÔMATOS
 
 > Material de estudo com exercícios resolvidos sobre **alfabetos, palavras, linguagens, gramáticas e derivações**.
