@@ -1,14 +1,12 @@
-# 📚 AULA 1 — LINGUAGENS FORMAIS E GRAMÁTICAS
+O ChatGPT disse:
+Claro. O ponto é: você quer o conteúdo em Markdown cru, com os # aparecendo, para copiar e colar. Então não vou colocar um bloco de código envolvendo tudo.
 
-**Data:** 10/08/2026
+📚 AULA 1 — LINGUAGENS FORMAIS E GRAMÁTICAS
+Data: 10/08/2026
 
----
-
-# 🟦 ATIVIDADE 1 — PREFIXOS E SUFIXOS
-
+🟦 ATIVIDADE 1 — PREFIXOS E SUFIXOS
 Considere a palavra:
 
-```text
 ab
 
 ❓ Pergunta
@@ -45,33 +43,30 @@ Uma possibilidade é:
 ε
 a
 aa
+🔎 Derivação
+Para gerar ε:
 
-🔎 Entendendo a derivação
-Podemos gerar a palavra vazia diretamente:
+S → ε
 
-S
-→ ε
+Para gerar a:
 
-Também podemos aplicar a regra S → aS:
+S → aS → aε → a
 
-S
-→ aS
-→ aaS
-→ aaε
+Para gerar aa:
 
-Portanto, algumas palavras geradas são:
+S → aS → aaS → aaε → aa
+
+Então algumas palavras geradas são:
 
 ε
 a
 aa
-
-Também poderiam ser geradas outras palavras, por exemplo:
+Também poderiam ser geradas outras palavras:
 
 aaa
 aaaa
 aaaaa
 ...
-
 Isso acontece porque a regra:
 
 S → aS
@@ -80,7 +75,7 @@ pode ser aplicada várias vezes antes de usar:
 
 S → ε
 
-📖 RESUMO PARA PROVA
+📖 13. RESUMO PARA PROVA
 🔤 ALFABETO
 Σ representa o conjunto de símbolos que podem ser usados.
 
@@ -91,9 +86,8 @@ Nesse caso, os símbolos do alfabeto são:
 
 a
 b
-
 📝 CADEIA OU PALAVRA
-Uma cadeia, ou palavra, é uma sequência de símbolos que pertencem ao alfabeto.
+É uma sequência de símbolos que pertencem ao alfabeto.
 
 Por exemplo, considerando:
 
@@ -106,6 +100,7 @@ ab
 é uma palavra válida porque os dois símbolos pertencem ao alfabeto.
 
 a ∈ Σ
+
 b ∈ Σ
 
 Portanto:
@@ -132,14 +127,12 @@ Ela não deve ser confundida com o conjunto vazio:
 
 Temos:
 
-ε  → palavra vazia
-
-∅  → conjunto vazio
-
+ε → palavra vazia
+∅ → conjunto vazio
 ⭐ SIGMA*
 Σ* representa o conjunto de todas as cadeias finitas que podem ser formadas usando os símbolos de Σ.
 
-Também inclui a palavra vazia ε.
+Também inclui a palavra vazia.
 
 Exemplo
 Se:
@@ -153,14 +146,14 @@ Então:
 💡 Importante
 O símbolo * significa que podemos formar palavras de diferentes tamanhos, incluindo tamanho 0.
 
-Por isso ε pertence a Σ*:
+Por isso:
 
 ε ∈ Σ*
 
 🌐 LINGUAGEM
 Uma linguagem é um conjunto de cadeias.
 
-Podemos representar uma linguagem por:
+Podemos representar por:
 
 L ⊆ Σ*
 
@@ -182,7 +175,7 @@ L ⊆ Σ*
 porque todas as palavras de L são formadas usando apenas símbolos de Σ.
 
 🔵 PREFIXO
-Um prefixo é uma parte da palavra que começa no primeiro símbolo.
+Prefixo é uma parte da palavra que começa no primeiro símbolo.
 
 Considerando:
 
@@ -196,11 +189,11 @@ Exemplos
 ε é o prefixo vazio.
 a é prefixo porque começa no primeiro símbolo.
 ab é prefixo porque é a palavra inteira.
-Regra para lembrar
+🧠 Regra para lembrar
 PREFIXO → começa no início da palavra.
 
 🟢 SUFIXO
-Um sufixo é uma parte da palavra que termina no último símbolo.
+Sufixo é uma parte da palavra que termina no último símbolo.
 
 Considerando:
 
@@ -212,9 +205,9 @@ Os sufixos são:
 
 Exemplos
 ε é o sufixo vazio.
-b é sufixo porque está no final da palavra.
+b está no final da palavra.
 ab é sufixo porque é a palavra inteira.
-Regra para lembrar
+🧠 Regra para lembrar
 SUFIXO → termina no final da palavra.
 
 🧠 PREFIXO × SUFIXO
@@ -244,11 +237,26 @@ Nesse caso, podemos começar com S e ir aplicando as regras até chegar em uma p
 
 Exemplo
 S
-→ aS
-→ aaS
-→ aaaS
-→ aaaε
-→ aaa
+
+↓
+
+aS
+
+↓
+
+aaS
+
+↓
+
+aaaS
+
+↓
+
+aaaε
+
+↓
+
+aaa
 
 Portanto:
 
@@ -269,11 +277,11 @@ S → aS
 
 Podemos ler como:
 
-"S produz aS."
+"S produz aS"
 
-Ou:
+ou:
 
-"S pode ser substituído por aS."
+"S pode ser substituído por aS".
 
 Exemplo de aplicação
 Se temos:
@@ -286,8 +294,7 @@ S
 
 podemos fazer:
 
-S
-→ aS
+S → aS
 
 🔀 SÍMBOLO |
 Nas regras de produção, o símbolo:
@@ -336,12 +343,7 @@ S → aS
 
 Depois:
 
-S
-→ aS
-→ aaS
-→ aaaS
-→ aaaε
-→ aaa
+S → aS → aaS → aaaS → aaaε → aaa
 
 Também podemos gerar:
 
@@ -351,7 +353,6 @@ aaa
 aaaa
 aaaaa
 ...
-
 Portanto, essa gramática gera todas as palavras formadas por zero ou mais a.
 
 Podemos representar a linguagem gerada por:
@@ -377,7 +378,7 @@ ou:
 
 se... então
 
-Mas, quando estamos trabalhando com gramáticas, normalmente usamos → para indicar uma regra de produção.
+Mas, quando estamos trabalhando com gramáticas, normalmente estamos usando → para indicar uma regra de produção.
 
 Exemplo
 Na gramática:
@@ -499,6 +500,7 @@ Sufixos
 Como a e b pertencem ao alfabeto:
 
 a ∈ Σ
+
 b ∈ Σ
 
 a palavra:
@@ -522,3 +524,31 @@ aaa
 aaaa
 aaaaa
 ...
+Portanto, a ideia principal da aula é:
+
+Um alfabeto possui símbolos. Símbolos formam palavras. Palavras formam linguagens. Gramáticas utilizam regras para gerar palavras.
+
+🚀 RESUMÃO
+Conceito	O que significa
+Σ	Alfabeto
+a, b, 0, 1	Símbolos
+ab	Palavra
+ε	Palavra vazia
+Σ*	Todas as palavras possíveis
+L	Linguagem
+L ⊆ Σ*	Linguagem formada por palavras de Σ*
+Prefixo	Parte que começa no início
+Sufixo	Parte que termina no final
+G	Gramática
+V	Variáveis
+T	Terminais
+P	Produções
+S	Símbolo inicial
+→	Regra de produção
+`	`
+Derivação	Aplicação das regras para gerar uma palavra
+
+📌 FRASE PARA DECORAR
+Alfabeto → símbolos → palavras → linguagens.
+
+Gramática → regras → derivações → palavras.
