@@ -1,232 +1,551 @@
-📚 Exercícios Práticos para Fixação
+Claro. Aqui está o **arquivo completo em Markdown puro**, sem bloco envolvendo o documento inteiro. Você pode copiar **a partir de `# 📚` até o final** diretamente para seu `.md`.
 
-Material de revisão sobre Gramáticas Formais, Derivação, Gramáticas Livres de Contexto (GLC) e Gramáticas Regulares.
+ # 📚 Exercícios Práticos para Fixação
 
-📑 Sumário
-Bloco 1 — Derivação
-A) Gere a palavra aaab
-B) Quando a derivação termina?
-Bloco 2 — GLC
-A) Gere a palavra aaabbb
-B) É possível gerar aabbb?
-Bloco 3 — Classificação
-Resumo das respostas
-Conceitos-chave
-🔹 BLOCO 1 — DERIVAÇÃO
+ > Material de revisão sobre **Gramáticas Formais**, **Derivação**, **Gramáticas Livres de Contexto (GLC)** e **Gramáticas Regulares**.
 
-Dada a gramática:
+---
 
+ ## 📑 Sumário
+
+ - 🔹 Bloco 1 — Derivação
+  - A) Gere a palavra `aaab`
+  - B) Explique como você sabe que a derivação terminou
+- 🔹 Bloco 2 — GLC
+  - A) Gere a palavra `aaabbb`
+  - B) É possível gerar a palavra `aabbb`?
+- 🔹 Bloco 3 — Classificação
+- 📌 Resumo das Respostas
+- 🧠 Conceitos Importantes
+- 📝 Checklist de Revisão
+
+---
+
+ ## 🔹 BLOCO 1 — DERIVAÇÃO
+
+ Dada a gramática:
+
+```
 G1: S -> aS | b
+```
 
-A) Gere a palavra aaab
+ ### A) Gere a palavra `aaab`
 
-Resposta:
+ ### Resposta
 
-Começamos pelo símbolo inicial S.
+ Começamos pelo símbolo inicial `S`.
 
+ A derivação é:
+
+```
 S
 → aS
 → aaS
 → aaaS
 → aaab
+```
 
+ Portanto:
 
-Portanto, a palavra aaab pode ser gerada pela gramática.
+ > **`aaab` pode ser gerada pela gramática G1.** ✅
 
-B) Quando a derivação termina?
+---
 
-Resposta:
+ ### B) Explique como você sabe que a derivação terminou
 
-A derivação termina quando não aparece mais nenhum símbolo não terminal.
+ ### Resposta
 
-No começo temos:
+ A derivação terminou porque **não aparece mais nenhum símbolo não terminal**.
 
+ No início temos:
+
+```
 S
+```
 
+ O símbolo `S` é um **não terminal**.
 
-O símbolo S é um não terminal.
+ Aplicamos a regra:
 
-Aplicamos a regra:
-
+```
 S -> aS
+```
 
+ algumas vezes:
 
-algumas vezes e, no final, utilizamos:
+```
+S
+→ aS
+→ aaS
+→ aaaS
+```
 
+ Depois utilizamos:
+
+```
 S -> b
+```
 
+ Obtendo:
 
-Chegamos então a:
-
+```
 aaab
+```
 
+ Nesse ponto temos somente símbolos terminais:
 
-Nesse ponto existem somente símbolos terminais:
-
+```
 a a a b
+```
 
+ Portanto, a derivação terminou.
 
-Por isso, a derivação terminou.
+ ### 💡 Regra importante
 
-Regra: uma derivação termina quando a sentença contém somente símbolos terminais.
+ > Uma derivação termina quando a sentença contém **somente símbolos terminais**.
 
-🔹 BLOCO 2 — GLC
+---
 
-Dada a gramática:
+ ## 🔹 BLOCO 2 — GLC
 
+ Dada a gramática:
+
+```
 G2: S -> aSb | ε
+```
 
+ > **Observação:** `ε` representa a **palavra vazia**.
 
-ε representa a palavra vazia.
+---
 
-A) Gere a palavra aaabbb
+ ### A) Gere a palavra `aaabbb`
 
-Resposta:
+ ### Resposta
 
-Começamos com S.
+ Começamos pelo símbolo inicial `S`.
 
+ Aplicamos a produção:
+
+```
+S -> aSb
+```
+
+ resultando em:
+
+```
+S
+→ aSb
+```
+
+ Aplicamos novamente:
+
+```
+S
+→ aSb
+→ aaSbb
+```
+
+ Aplicamos mais uma vez:
+
+```
 S
 → aSb
 → aaSbb
 → aaaSbbb
+```
 
+ Agora precisamos eliminar o símbolo não terminal `S`.
 
-Agora utilizamos a produção:
+ Para isso, utilizamos:
 
+```
 S -> ε
+```
 
+ Assim:
 
-Portanto, a derivação completa é:
-
+```
 S
 → aSb
 → aaSbb
 → aaaSbbb
 → aaabbb
+```
 
+ Portanto:
 
-Portanto, a palavra aaabbb pode ser gerada.
+ > **`aaabbb` pode ser gerada pela gramática G2.** ✅
 
-B) É possível gerar aabbb?
+---
 
-Resposta: não.
+ ### B) É possível gerar a palavra `aabbb`?
 
-A regra:
+ ### Resposta
 
+ **Não.** ❌
+
+ A regra:
+
+```
 S -> aSb
+```
 
+ sempre adiciona:
 
-sempre adiciona:
+ - um `a` no início;
+- um `b` no final.
 
-um a no início;
-um b no final.
+ Ou seja, cada aplicação da regra adiciona **um `a` e um `b` ao mesmo tempo**.
 
-Logo, a quantidade de a e b será sempre igual.
+ Por exemplo:
 
-Por exemplo:
-
+```
 S
 → aSb
 → aaSbb
 → aaaSbbb
+```
 
+ Podemos gerar:
 
-Podemos gerar:
-
+```
 ab
 aabb
 aaabbb
 aaaabbbb
-...
+```
 
+ Observe que a quantidade de `a` e `b` é sempre igual.
 
-Porém:
+ | Palavra | Quantidade de `a` | Quantidade de `b` |
+| --- | --- | --- |
+| `ab` | 1 | 1 |
+| `aabb` | 2 | 2 |
+| `aaabbb` | 3 | 3 |
+| `aaaabbbb` | 4 | 4 |
 
+ Agora observe a palavra:
+
+```
 aabbb
+```
 
+ Ela possui:
 
-possui:
+ - **2** letras `a`;
+- **3** letras `b`.
 
-2 letras a;
-3 letras b.
+ Como as quantidades são diferentes, ela não pode ser gerada pela gramática.
 
-Como as quantidades são diferentes, essa palavra não pode ser gerada.
+ Portanto:
 
-❌ Resultado
+```
 aabbb ∉ L(G2)
+```
 
+ > **`aabbb` não pertence à linguagem gerada por G2.** ❌
 
-Portanto:
+ ### 💡 Padrão da linguagem
 
-aabbb não pertence à linguagem gerada por G2.
+ A gramática gera palavras no formato:
 
-A linguagem gerada possui o formato:
-
+```
 L(G2) = { aⁿbⁿ | n ≥ 0 }
+```
 
+ Alguns exemplos são:
 
-Exemplos:
+```
+ε
+ab
+aabb
+aaabbb
+aaaabbbb
+aaaaabbbbb
+...
+```
 
+---
+
+ ## 🔹 BLOCO 3 — CLASSIFICAÇÃO
+
+ Classifique a gramática como **REGULAR** ou **LIVRE DE CONTEXTO**:
+
+```
+S -> aA
+A -> b
+```
+
+---
+
+ ### Resposta
+
+ A gramática é:
+
+ > **REGULAR** 🟢
+
+ Isso acontece porque suas produções seguem o formato de uma **gramática regular**.
+
+ Temos a produção:
+
+```
+S -> aA
+```
+
+ Nela temos:
+
+ - `a` → símbolo terminal;
+- `A` → símbolo não terminal.
+
+ E temos:
+
+```
+A -> b
+```
+
+ Nessa produção temos apenas um símbolo terminal.
+
+---
+
+ ### 🔄 Derivação
+
+ Podemos verificar a geração da palavra utilizando:
+
+```
+S
+→ aA
+→ ab
+```
+
+ Portanto, a palavra gerada é:
+
+```
+ab
+```
+
+ Logo:
+
+ > **A gramática é REGULAR.** ✅
+
+---
+
+ # 📌 Resumo das Respostas
+
+ | Bloco | Questão | Resposta |
+| --- | --- | --- |
+| **1** | A | ✅ `aaab` pode ser gerada |
+| **1** | B | ✅ A derivação termina quando não existem não terminais |
+| **2** | A | ✅ `aaabbb` pode ser gerada |
+| **2** | B | ❌ `aabbb` não pode ser gerada |
+| **3** | Classificação | 🟢 A gramática é **REGULAR** |
+
+---
+
+ # 🧠 Conceitos Importantes
+
+ ## 🔸 Símbolo Terminal
+
+ Um **terminal** é um símbolo que aparece na palavra final e não precisa mais ser substituído.
+
+ Exemplos:
+
+```
+a
+b
+```
+
+---
+
+ ## 🔸 Símbolo Não Terminal
+
+ Um **não terminal** é um símbolo utilizado durante a derivação e que pode ser substituído através de uma produção.
+
+ Exemplos:
+
+```
+S
+A
+```
+
+---
+
+ ## 🔸 Produção
+
+ Uma **produção** é uma regra utilizada para transformar uma sentença durante uma derivação.
+
+ Exemplo:
+
+```
+S -> aS
+```
+
+ Significa que podemos substituir `S` por `aS`.
+
+---
+
+ ## 🔸 Derivação
+
+ A **derivação** é o processo de aplicar as produções de uma gramática até chegar a uma palavra formada somente por símbolos terminais.
+
+ Exemplo:
+
+```
+S
+→ aS
+→ aaS
+→ aaaS
+→ aaab
+```
+
+---
+
+ ## 🔸 Palavra Vazia
+
+ A palavra vazia é representada pelo símbolo:
+
+```
+ε
+```
+
+ Ela representa uma palavra que possui **zero símbolos**.
+
+---
+
+ ## 🔸 Gramática Regular
+
+ Uma gramática regular possui produções que seguem um formato específico, como:
+
+```
+A -> aB
+A -> a
+```
+
+ Por exemplo:
+
+```
+S -> aA
+A -> b
+```
+
+ é uma gramática regular.
+
+---
+
+ ## 🔸 Linguagem Gerada
+
+ A linguagem gerada por uma gramática é o conjunto de todas as palavras que podem ser produzidas através de suas regras.
+
+ Por exemplo, para:
+
+```
+G2: S -> aSb | ε
+```
+
+ temos:
+
+```
+L(G2) = { aⁿbⁿ | n ≥ 0 }
+```
+
+ Exemplos:
+
+```
 ε
 ab
 aabb
 aaabbb
 aaaabbbb
 ...
+```
 
-🔹 BLOCO 3 — CLASSIFICAÇÃO
+---
 
-Classifique a gramática como REGULAR ou LIVRE DE CONTEXTO:
+ # 🎯 Para Memorizar
 
-S -> aA
-A -> b
+ ### 1\. Quando uma derivação termina?
 
-Resposta
+ > Quando **não existem mais símbolos não terminais**.
 
-A gramática é REGULAR.
+---
 
-Isso acontece porque as produções seguem o formato de uma gramática regular.
+ ### 2\. O que `S -> aSb` faz?
 
-Temos:
+ > Adiciona **um `a` no início** e **um `b` no final**.
 
-S -> aA
+---
 
+ ### 3\. Qual é o padrão de `G2`?
 
-e:
+```
+aⁿbⁿ
+```
 
-A -> b
+ Ou seja:
 
+ > A quantidade de `a` deve ser igual à quantidade de `b`.
 
-Na primeira produção temos:
+---
 
-a → terminal;
-A → não terminal.
+ ### 4\. Por que `aabbb` não pode ser gerada?
 
-Na segunda produção temos apenas o terminal b.
+ Porque:
 
-🔄 Derivação
+```
+aabbb
+```
 
-A palavra gerada pode ser obtida através de:
+ possui:
 
-S
-→ aA
-→ ab
+```
+2 a's
+3 b's
+```
 
+ E a gramática exige:
 
-Logo:
+```
+quantidade de a = quantidade de b
+```
 
-ab
+---
 
+ ### 5\. Como saber se uma gramática é regular?
 
-é uma palavra gerada pela gramática.
+ Verifique se suas produções seguem o formato permitido para uma **gramática regular**.
 
-✅ Resultado
+ Exemplo:
 
-A gramática é REGULAR.
+```
+A -> aB
+A -> a
+```
 
-📌 RESUMO DAS RESPOSTAS
-Bloco	Questão	Resposta
-1	A	✅ aaab pode ser gerada
-1	B	✅ A derivação termina quando não há não terminais
+---
 
-|
+ # 📝 Checklist de Revisão
+
+ - [ ] Sei diferenciar terminal e não terminal.
+- [ ] Sei identificar o símbolo inicial.
+- [ ] Sei fazer uma derivação passo a passo.
+- [ ] Sei identificar quando uma derivação termina.
+- [ ] Sei interpretar `ε` como palavra vazia.
+- [ ] Sei verificar se uma palavra pertence à linguagem.
+- [ ] Sei identificar o padrão `aⁿbⁿ`.
+- [ ] Sei classificar uma gramática regular.
+- [ ] Sei justificar por que uma palavra pode ou não ser gerada.
+
+---
+
+ # 📚 Exercícios Resolvidos — Conclusão
+
+ | Conceito | O que lembrar |
+| --- | --- |
+| **Derivação** | Aplicação das regras da gramática |
+| **Terminal** | Não pode mais ser substituído |
+| **Não terminal** | Pode ser substituído |
+| **`ε`** | Palavra vazia |
+| **`S -> aSb`** | Adiciona `a` e `b` simultaneamente |
+| **`aⁿbⁿ`** | Mesma quantidade de `a` e `b` |
+| **Gramática Regular** | Produções seguem o formato regular |
+
+> 💡 **Dica de estudo:** tente refazer cada exercício sem consultar as respostas. Depois, compare sua derivação com as soluções deste material.
