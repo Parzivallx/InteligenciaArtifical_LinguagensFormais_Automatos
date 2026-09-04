@@ -3,25 +3,26 @@
 Material de revisão sobre Gramáticas Formais, Derivação, Gramáticas Livres de Contexto (GLC) e Gramáticas Regulares.
 
 📑 Sumário
-🔹 Bloco 1 — Derivação
-A) Gerando aaab
-B) Identificando o fim da derivação
-🔹 Bloco 2 — GLC
-A) Gerando aaabbb
+Bloco 1 — Derivação
+A) Gere a palavra aaab
+B) Quando a derivação termina?
+Bloco 2 — GLC
+A) Gere a palavra aaabbb
 B) É possível gerar aabbb?
-🔹 Bloco 3 — Classificação
-📌 Resumo das respostas
-🔹 Bloco 1 — Derivação
+Bloco 3 — Classificação
+Resumo das respostas
+Conceitos-chave
+🔹 BLOCO 1 — DERIVAÇÃO
 
-Considere a seguinte gramática:
+Dada a gramática:
 
 G1: S -> aS | b
 
-A) Gerando aaab
+A) Gere a palavra aaab
 
-Queremos descobrir se a palavra aaab pode ser gerada pela gramática.
+Resposta:
 
-Começamos pelo símbolo inicial S:
+Começamos pelo símbolo inicial S.
 
 S
 → aS
@@ -29,56 +30,60 @@ S
 → aaaS
 → aaab
 
-✅ Resultado
 
-A palavra aaab pode ser gerada pela gramática G1.
+Portanto, a palavra aaab pode ser gerada pela gramática.
 
-B) Identificando o fim da derivação
+B) Quando a derivação termina?
 
-A derivação termina quando não existem mais símbolos não terminais na palavra.
+Resposta:
 
-No início temos:
+A derivação termina quando não aparece mais nenhum símbolo não terminal.
+
+No começo temos:
 
 S
 
 
 O símbolo S é um não terminal.
 
-Aplicamos algumas vezes a produção:
+Aplicamos a regra:
 
-S → aS
-
-
-Até chegar ao momento em que utilizamos:
-
-S → b
+S -> aS
 
 
-Obtendo:
+algumas vezes e, no final, utilizamos:
+
+S -> b
+
+
+Chegamos então a:
 
 aaab
 
 
-Agora temos somente símbolos terminais:
+Nesse ponto existem somente símbolos terminais:
 
 a a a b
 
-💡 Regra importante
 
-Uma derivação terminou quando a sentença resultante contém somente símbolos terminais.
+Por isso, a derivação terminou.
 
-🔹 Bloco 2 — GLC
+Regra: uma derivação termina quando a sentença contém somente símbolos terminais.
 
-Considere a gramática:
+🔹 BLOCO 2 — GLC
+
+Dada a gramática:
 
 G2: S -> aSb | ε
 
 
-Observação: ε representa a palavra vazia.
+ε representa a palavra vazia.
 
-A) Gerando aaabbb
+A) Gere a palavra aaabbb
 
-Começamos pelo símbolo inicial S:
+Resposta:
+
+Começamos com S.
 
 S
 → aSb
@@ -86,14 +91,12 @@ S
 → aaaSbbb
 
 
-Agora precisamos eliminar o último não terminal S.
+Agora utilizamos a produção:
 
-Para isso, utilizamos:
-
-S → ε
+S -> ε
 
 
-Portanto:
+Portanto, a derivação completa é:
 
 S
 → aSb
@@ -101,17 +104,16 @@ S
 → aaaSbbb
 → aaabbb
 
-✅ Resultado
 
-A palavra aaabbb pode ser gerada pela gramática G2.
+Portanto, a palavra aaabbb pode ser gerada.
 
 B) É possível gerar aabbb?
 
-Não.
+Resposta: não.
 
-A produção:
+A regra:
 
-S → aSb
+S -> aSb
 
 
 sempre adiciona:
@@ -119,7 +121,7 @@ sempre adiciona:
 um a no início;
 um b no final.
 
-Ou seja, os símbolos são adicionados em pares.
+Logo, a quantidade de a e b será sempre igual.
 
 Por exemplo:
 
@@ -129,7 +131,7 @@ S
 → aaaSbbb
 
 
-Isso permite gerar palavras como:
+Podemos gerar:
 
 ab
 aabb
@@ -138,40 +140,30 @@ aaaabbbb
 ...
 
 
-Observe o padrão:
-
-Palavra	Quantidade de a	Quantidade de b
-ab	1	1
-aabb	2	2
-aaabbb	3	3
-aaaabbbb	4	4
-
-Já a palavra:
+Porém:
 
 aabbb
 
 
 possui:
 
-2 a
-3 b
+2 letras a;
+3 letras b.
 
-As quantidades são diferentes.
+Como as quantidades são diferentes, essa palavra não pode ser gerada.
 
 ❌ Resultado
 aabbb ∉ L(G2)
 
 
-Portanto, aabbb não pertence à linguagem gerada por G2.
+Portanto:
 
-💡 Regra importante
+aabbb não pertence à linguagem gerada por G2.
 
-A gramática G2 gera palavras no formato:
+A linguagem gerada possui o formato:
 
-aⁿbⁿ
+L(G2) = { aⁿbⁿ | n ≥ 0 }
 
-
-onde n ≥ 0.
 
 Exemplos:
 
@@ -182,128 +174,59 @@ aaabbb
 aaaabbbb
 ...
 
-🔹 Bloco 3 — Classificação
+🔹 BLOCO 3 — CLASSIFICAÇÃO
 
-Considere a gramática:
+Classifique a gramática como REGULAR ou LIVRE DE CONTEXTO:
 
 S -> aA
 A -> b
 
+Resposta
 
-A pergunta é:
+A gramática é REGULAR.
 
-Essa gramática é REGULAR ou LIVRE DE CONTEXTO?
-
-🔎 Analisando as produções
-
-Primeira produção:
-
-S → aA
-
+Isso acontece porque as produções seguem o formato de uma gramática regular.
 
 Temos:
+
+S -> aA
+
+
+e:
+
+A -> b
+
+
+Na primeira produção temos:
 
 a → terminal;
 A → não terminal.
 
-Segunda produção:
-
-A → b
-
-
-Temos somente um terminal.
-
-Essas produções estão de acordo com o formato de uma gramática regular.
+Na segunda produção temos apenas o terminal b.
 
 🔄 Derivação
 
-Podemos verificar isso gerando a palavra:
+A palavra gerada pode ser obtida através de:
 
 S
 → aA
 → ab
 
 
-Logo, a gramática gera:
+Logo:
 
 ab
 
+
+é uma palavra gerada pela gramática.
+
 ✅ Resultado
 
-A gramática é:
+A gramática é REGULAR.
 
-🟢 REGULAR
-📌 Resumo das Respostas
+📌 RESUMO DAS RESPOSTAS
 Bloco	Questão	Resposta
 1	A	✅ aaab pode ser gerada
 1	B	✅ A derivação termina quando não há não terminais
-2	A	✅ aaabbb pode ser gerada
-2	B	❌ aabbb não pode ser gerada
-3	Classificação	🟢 Gramática REGULAR
-🧠 Conceitos-chave
-🔸 Terminal
 
-É um símbolo que aparece na palavra final e não precisa mais ser substituído.
-
-Exemplos:
-
-a
-b
-
-🔸 Não terminal
-
-É um símbolo utilizado durante a derivação e que pode ser substituído por uma produção.
-
-Exemplo:
-
-S
-A
-
-🔸 Derivação
-
-É o processo de aplicar as produções da gramática até chegar a uma palavra formada somente por terminais.
-
-Exemplo:
-
-S
-→ aS
-→ aaS
-→ aaaS
-→ aaab
-
-🔸 Palavra vazia
-
-Representada por:
-
-ε
-
-
-Significa uma palavra que possui zero símbolos.
-
-🔸 Gramática Regular
-
-Uma gramática cujas produções seguem um formato regular, como:
-
-A → aB
-A → a
-
-🎯 Para memorizar
-
-Derivação termina → só existem terminais.
-
-S → aSb → adiciona um a e um b juntos.
-
-Gramática regular → produções seguem o formato regular.
-
-📝 Checklist de revisão
- Sei diferenciar terminal e não terminal.
- Sei fazer uma derivação passo a passo.
- Sei identificar quando uma derivação termina.
- Sei interpretar ε como palavra vazia.
- Sei verificar se uma palavra pertence à linguagem.
- Sei identificar uma gramática regular.
- Sei explicar por que uma palavra não pode ser gerada.
-
-📚 Fim dos exercícios
-
-💡 Dica: tente refazer cada derivação sem olhar a resposta. Depois, compare seu resultado com as soluções acima.
+|
