@@ -1,5 +1,3 @@
-Claro. Aqui está o **arquivo completo em Markdown puro**, sem bloco envolvendo o documento inteiro. Você pode copiar **a partir de `# 📚` até o final** diretamente para seu `.md`.
-
  # 📚 Exercícios Práticos para Fixação
 
  > Material de revisão sobre **Gramáticas Formais**, **Derivação**, **Gramáticas Livres de Contexto (GLC)** e **Gramáticas Regulares**.
