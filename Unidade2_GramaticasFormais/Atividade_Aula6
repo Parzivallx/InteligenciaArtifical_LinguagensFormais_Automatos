@@ -1,42 +1,10 @@
 # 📧 Atividade Prática – Validação de E-mails
 
-**Disciplina:** Linguagens Formais  
-**Tema:** Expressões Regulares e Validação de E-mails  
+**Disciplina:** Linguagens Formais
+**Tema:** Expressões Regulares e Validação de E-mails
 **Linguagem:** Python
 
 ---
-
-import re
-
-padrao = r"^[A-Za-z0-9._+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"
-
-emails = [
-    "maria@gmail.com",
-    "joao.silva@udf.edu.br",
-    "estudante_01@faculdade.com",
-    "pedro.gmail.com",
-    "ana@dominio"
-]
-
-validos = []
-invalidos = []
-
-for email in emails:
-    if re.fullmatch(padrao, email):
-        validos.append(email)
-    else:
-        invalidos.append(email)
-
-print("E-mails válidos:")
-for email in validos:
-    print(email)
-
-print("\nE-mails inválidos:")
-for email in invalidos:
-    print(email)
-
-
-
 
 ## 🐍 1. Programa em Python
 
@@ -79,23 +47,23 @@ for email in invalidos:
 
 ### ✅ E-mails Válidos
 
-- `maria@gmail.com`
-- `joao.silva@udf.edu.br`
-- `estudante_01@faculdade.com`
+* `maria@gmail.com`
+* `joao.silva@udf.edu.br`
+* `estudante_01@faculdade.com`
 
 ### ❌ E-mails Inválidos
 
-- `pedro.gmail.com`
-- `ana@dominio`
+* `pedro.gmail.com`
+* `ana@dominio`
 
 ---
 
 ## ❌ 3. Explicação dos E-mails Inválidos
 
-| **E-mail** | **Motivo** |
-|---|---|
-| `pedro.gmail.com` | Não possui o caractere `@`. |
-| `ana@dominio` | Não possui uma extensão, como `.com` ou `.br`. |
+| **E-mail**        | **Motivo**                                     |
+| ----------------- | ---------------------------------------------- |
+| `pedro.gmail.com` | Não possui o caractere `@`.                    |
+| `ana@dominio`     | Não possui uma extensão, como `.com` ou `.br`. |
 
 ---
 
@@ -115,14 +83,14 @@ USUÁRIO + @ + DOMÍNIO + . + EXTENSÃO
 
 ### Elementos da Regex
 
-| **Elemento** | **Descrição** |
-|---|---|
-| `^[A-Za-z0-9._+-]+` | Define o usuário do e-mail. |
-| `@` | Caractere obrigatório que separa o usuário do domínio. |
-| `[A-Za-z0-9.-]+` | Define o domínio. |
-| `\.` | Representa o ponto antes da extensão. |
-| `[A-Za-z]{2,}` | Define uma extensão com pelo menos 2 letras. |
-| `$` | Indica o final da entrada. |
+| **Elemento**        | **Descrição**                                          |
+| ------------------- | ------------------------------------------------------ |
+| `^[A-Za-z0-9._+-]+` | Define o usuário do e-mail.                            |
+| `@`                 | Caractere obrigatório que separa o usuário do domínio. |
+| `[A-Za-z0-9.-]+`    | Define o domínio.                                      |
+| `\.`                | Representa o ponto antes da extensão.                  |
+| `[A-Za-z]{2,}`      | Define uma extensão com pelo menos 2 letras.           |
+| `$`                 | Indica o final da entrada.                             |
 
 ---
 
