@@ -1,8 +1,8 @@
 # 📧 Atividade Prática – Validação de E-mails
 
-> **Disciplina:** Linguagens Formais
-> **Tema:** Expressões Regulares e Validação de E-mails
-> **Linguagem:** Python
+**Disciplina:** Linguagens Formais  
+**Tema:** Expressões Regulares e Validação de E-mails  
+**Linguagem:** Python
 
 ---
 
@@ -36,7 +36,9 @@ for email in invalidos:
     print(email)
 
 
-## 1. 🐍 Programa em Python
+
+
+## 🐍 1. Programa em Python
 
 O programa utiliza uma **expressão regular (Regex)** para verificar se os e-mails informados seguem o formato esperado.
 
@@ -73,37 +75,33 @@ for email in invalidos:
 
 ---
 
-## 2. 📋 Resultado Esperado
+## 📋 2. Resultado Esperado
 
 ### ✅ E-mails Válidos
 
-| E-mail                       |
-| ---------------------------- |
-| `maria@gmail.com`            |
-| `joao.silva@udf.edu.br`      |
-| `estudante_01@faculdade.com` |
+- `maria@gmail.com`
+- `joao.silva@udf.edu.br`
+- `estudante_01@faculdade.com`
 
 ### ❌ E-mails Inválidos
 
-| E-mail            |
-| ----------------- |
-| `pedro.gmail.com` |
-| `ana@dominio`     |
+- `pedro.gmail.com`
+- `ana@dominio`
 
 ---
 
-## 3. ❌ Explicação dos E-mails Inválidos
+## ❌ 3. Explicação dos E-mails Inválidos
 
-| E-mail            | Motivo                                         |
-| ----------------- | ---------------------------------------------- |
-| `pedro.gmail.com` | Não possui o caractere `@`.                    |
-| `ana@dominio`     | Não possui uma extensão, como `.com` ou `.br`. |
+| **E-mail** | **Motivo** |
+|---|---|
+| `pedro.gmail.com` | Não possui o caractere `@`. |
+| `ana@dominio` | Não possui uma extensão, como `.com` ou `.br`. |
 
 ---
 
-## 4. 🔎 Expressão Regular
+## 🔎 4. Expressão Regular
 
-A expressão regular utilizada no programa foi:
+A expressão regular utilizada foi:
 
 ```text
 ^[A-Za-z0-9._+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$
@@ -117,18 +115,18 @@ USUÁRIO + @ + DOMÍNIO + . + EXTENSÃO
 
 ### Elementos da Regex
 
-| Elemento            | Descrição                                           |
-| ------------------- | --------------------------------------------------- |
-| `^[A-Za-z0-9._+-]+` | Define o usuário do e-mail.                         |
-| `@`                 | Caractere obrigatório que separa usuário e domínio. |
-| `[A-Za-z0-9.-]+`    | Define o domínio.                                   |
-| `\.`                | Representa o ponto antes da extensão.               |
-| `[A-Za-z]{2,}`      | Define uma extensão com pelo menos 2 letras.        |
-| `$`                 | Indica o final da entrada.                          |
+| **Elemento** | **Descrição** |
+|---|---|
+| `^[A-Za-z0-9._+-]+` | Define o usuário do e-mail. |
+| `@` | Caractere obrigatório que separa o usuário do domínio. |
+| `[A-Za-z0-9.-]+` | Define o domínio. |
+| `\.` | Representa o ponto antes da extensão. |
+| `[A-Za-z]{2,}` | Define uma extensão com pelo menos 2 letras. |
+| `$` | Indica o final da entrada. |
 
 ---
 
-## 5. 📚 Relação com Linguagens Formais
+## 📚 5. Relação com Linguagens Formais
 
 A expressão regular define uma **linguagem** formada por e-mails que seguem um determinado padrão.
 
@@ -138,11 +136,11 @@ A estrutura pode ser representada como:
 USUÁRIO + @ + DOMÍNIO + . + EXTENSÃO
 ```
 
-Dessa forma, cada e-mail informado pelo usuário é analisado pelo programa para verificar se **pertence ou não à linguagem definida pela expressão regular**.
+Dessa forma, o programa verifica cada entrada e determina se o e-mail **pertence ou não à linguagem definida pela expressão regular**.
 
 ---
 
-## 6. ⚙️ Funcionamento
+## ⚙️ 6. Funcionamento do Programa
 
 O programa realiza as seguintes etapas:
 
@@ -156,10 +154,10 @@ O programa realiza as seguintes etapas:
 
 ---
 
-## 7. 🎯 Conclusão
+## 🎯 7. Conclusão
 
 O programa recebe cinco e-mails e utiliza uma **expressão regular** para validar cada entrada.
 
 Após a verificação, os e-mails são separados em duas listas: **válidos** e **inválidos**.
 
-A atividade demonstra, na prática, a utilização de **Expressões Regulares** relacionadas aos conceitos de **Linguagens Formais**, permitindo identificar se uma determinada entrada pertence ou não ao padrão definido.
+A atividade demonstra, na prática, a utilização de **Expressões Regulares** e conceitos de **Linguagens Formais** para realizar a validação de dados.
