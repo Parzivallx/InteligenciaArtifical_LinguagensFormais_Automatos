@@ -5,6 +5,7 @@
 **Linguagem:** Python
 
 ---
+```python
 import re
 
 padrao = r"^[A-Za-z0-9._+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"
@@ -27,12 +28,16 @@ for email in emails:
         invalidos.append(email)
 
 print("E-mails válidos:")
+
 for email in validos:
     print(email)
 
 print("\nE-mails inválidos:")
+
 for email in invalidos:
     print(email)
+```
+
 
 
 
