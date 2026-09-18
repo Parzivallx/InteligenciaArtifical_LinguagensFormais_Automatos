@@ -5,43 +5,6 @@
 **Linguagem:** Python
 
 ---
-```python
-import re
-
-padrao = r"^[A-Za-z0-9._+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"
-
-emails = [
-    "maria@gmail.com",
-    "joao.silva@udf.edu.br",
-    "estudante_01@faculdade.com",
-    "pedro.gmail.com",
-    "ana@dominio"
-]
-
-validos = []
-invalidos = []
-
-for email in emails:
-    if re.fullmatch(padrao, email):
-        validos.append(email)
-    else:
-        invalidos.append(email)
-
-print("E-mails válidos:")
-
-for email in validos:
-    print(email)
-
-print("\nE-mails inválidos:")
-
-for email in invalidos:
-    print(email)
-```
-
-
-
-
-
 
 
 ## 🐍 1. Programa em Python
