@@ -1,88 +1,100 @@
-Construção de Autômato Finito Determinístico (AFD)
+# 🤖 Construção de Autômato Finito Determinístico (AFD)
 
+## 🎯 1. Desafio
 
-1. Desafio
+Construir um **AFD** sobre o alfabeto:
 
-Construir um AFD sobre o alfabeto:
+> **Σ = {0, 1}**
 
-Σ = {0, 1}
+O autômato deve reconhecer todas as palavras que **terminam com `00`**.
 
-O AFD deve reconhecer todas as palavras que terminam com 00.
+---
 
+## 🔵 2. Estados
 
-2. Estados
+### 🟢 q0 — Estado Inicial
 
-q0: estado inicial. A palavra não termina em 0.
+A palavra ainda **não termina em `0`**.
 
-q1: a palavra termina em 0.
+### 🟡 q1
 
-q2: a palavra termina em 00. É o estado final.
+A palavra **termina em `0`**.
 
+### 🔴 q2 — Estado Final
 
-3. Transições
+A palavra **termina em `00`**.
 
-Estado	0	1
-q0	q1	q0
-q1	q2	q0
-q2	q2	q0
+---
 
+## 🔄 3. Transições
 
-4. Grafo do AFD
+| Estado | Lê `0` | Lê `1` |
+|:---:|:---:|:---:|
+| 🟢 **q0** | q1 | q0 |
+| 🟡 **q1** | q2 | q0 |
+| 🔴 **q2** | q2 | q0 |
 
-→ q0 --0--> q1 --0--> q2*
-  ↑          |          |
-  |          1          0
-  |          ↓          |
-  └----------q0<--------┘
+---
 
-q0 --1--> q0
-q2 --1--> q0
+## 🧩 4. Grafo do AFD
 
-→ indica o estado inicial e * indica o estado final.
+```text
+             0             0
+        ┌─────────► q1 ─────────► q2 🔴
+        │             │             │
+        │             │ 1           │ 0
+        │             ▼             │
+     🟢 q0 ◄──────────┘             │
+        ▲                            │
+        └────────────── 1 ──────────┘
+```
 
+### 📌 Legenda
 
-5. Explicação lógica
+- 🟢 **q0** → Estado inicial
+- 🟡 **q1** → A palavra termina em `0`
+- 🔴 **q2** → Estado final
+- `0` e `1` → Símbolos do alfabeto
 
-O autômato verifica os últimos símbolos da palavra:
+---
 
-Em q0, ao ler 0, vai para q1.
+## 🧠 5. Explicação Lógica
 
-Em q1, ao ler outro 0, vai para q2.
+O autômato precisa verificar se os **dois últimos símbolos** são `00`.
 
-q2 é o estado final porque a palavra termina em 00.
+- 🔹 Em **q0**, ao ler `0`, vamos para **q1**.
+- 🔹 Em **q1**, ao ler outro `0`, chegamos em **q2**.
+- 🔹 **q2** é o estado final porque a palavra termina em `00`.
+- 🔹 Se lermos `1`, a sequência de zeros é interrompida e voltamos para **q0**.
+- 🔹 Em **q2**, ao ler `0`, permanecemos em **q2**, pois a palavra continua terminando em `00`.
 
-Se for lido 1, a sequência de zeros é interrompida e o autômato volta para q0.
+---
 
-Em q2, ao ler outro 0, permanece em q2, pois a palavra continua terminando em 00.
+## 🧪 6. Testes
 
+| Palavra | Resultado | Motivo |
+|:---:|:---:|---|
+| `100` | ✅ **Aceita** | Termina em `00` |
+| `1100` | ✅ **Aceita** | Termina em `00` |
+| `101` | ❌ **Rejeita** | Não termina em `00` |
 
-6. Testes
+### 📚 Outros exemplos
 
-Palavra	Resultado
-100	✅ Aceita
-1100	✅ Aceita
-101	❌ Rejeita
+- `00` → ✅ Aceita
+- `000` → ✅ Aceita
+- `010` → ❌ Rejeita
+- `1001` → ❌ Rejeita
 
-Outros exemplos
-00 → ✅ Aceita
+---
 
-000 → ✅ Aceita
+## 🏁 7. Conclusão
 
-010 → ❌ Rejeita
+O AFD possui **3 estados**:
 
-1001 → ❌ Rejeita
+- 🟢 **q0** → estado inicial
+- 🟡 **q1** → a palavra termina em `0`
+- 🔴 **q2** → estado final, pois a palavra termina em `00`
 
+### ✅ Resultado
 
-7. Conclusão
-
-O AFD possui 3 estados, sendo:
-
-q0 → estado inicial
-
-q1 → a palavra termina em 0
-
-q2 → estado final, pois a palavra termina em 00
-
-Portanto, o autômato reconhece exatamente as palavras sobre Σ = {0, 1} que terminam em 00.
-
-
+O autômato reconhece exatamente as palavras sobre **Σ = {0, 1}** que **terminam em `00`**.
