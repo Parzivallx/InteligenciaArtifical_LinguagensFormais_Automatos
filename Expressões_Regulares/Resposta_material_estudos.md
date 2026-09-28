@@ -1,6 +1,6 @@
 # 📚 8. Exercício Guiado
 
-Antes de escrever a expressão:
+Antes de escrever a expressão, siga estes passos:
 
 1. Defina o alfabeto.
 2. Separe a palavra em blocos.
@@ -20,11 +20,11 @@ Sobre **Σ = {0, 1}**, construa uma ER para todas as palavras que terminam em `0
 ^[01]*00$
 
 💡 Explicação
-[01]* → qualquer quantidade de 0 e 1.
-
-00 → garante que a palavra termina em 00.
-
-^ e $ → garantem que toda a cadeia seja analisada.
+Parte	Significado
+[01]*	Qualquer quantidade de 0 e 1
+00	Garante que a palavra termina em 00
+^	Início da cadeia
+$	Fim da cadeia
 
 🔹 Exercício 2 — Exatamente dois a
 Sobre Σ = {a, b}, construa uma ER para palavras que possuem exatamente dois símbolos a e qualquer quantidade de b.
@@ -33,11 +33,18 @@ Sobre Σ = {a, b}, construa uma ER para palavras que possuem exatamente dois sí
 ^b*ab*ab*$
 
 💡 Explicação
-A estrutura é:
+A estrutura da expressão é:
 
-b* a b* a b*
+b*  a  b*  a  b*
 
-Assim, existem exatamente dois a e qualquer quantidade de b.
+Parte	Significado
+b*	Qualquer quantidade de b
+a	Primeiro a
+b*	Qualquer quantidade de b
+a	Segundo a
+b*	Qualquer quantidade de b
+
+Dessa forma, a palavra possui exatamente dois a.
 
 🔹 Exercício 3 — Identificador Acadêmico
 O identificador deve:
@@ -53,7 +60,15 @@ não possuir caracteres extras.
 ✏️ Expressão
 ^[A-Z]{2}[0-9]{3}[a-z]?$
 
-💡 Exemplos
+💡 Explicação
+Parte	Significado
+[A-Z]{2}	Exatamente duas letras maiúsculas
+[0-9]{3}	Exatamente três algarismos
+[a-z]?	Uma letra minúscula opcional
+^	Início da cadeia
+$	Fim da cadeia
+
+✅ Exemplos
 Exemplo	Resultado
 AB123	✅
 XY456a	✅
@@ -84,13 +99,16 @@ não são permitidos caracteres extras.
 
 🧩 Estrutura
 (CCO|ESW|SIS) - 202[4-9] - [0-9]{4} - (M|T|N)
-      ↓             ↓           ↓          ↓
-    Curso          Ano       Número      Turno
+       ↓              ↓            ↓          ↓
+     Curso            Ano        Número      Turno
 
 🔤 Conjuntos
 C = {CCO, ESW, SIS}
+
 A = {2024, 2025, 2026, 2027, 2028, 2029}
+
 D = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+
 T = {M, T, N}
 
 A linguagem é:
@@ -98,33 +116,49 @@ A linguagem é:
 L = {c-a-d₁d₂d₃d₄-t | c ∈ C, a ∈ A, dᵢ ∈ D, t ∈ T}
 
 🧩 Explicação da Regex
-1️⃣ Curso
+1. Curso
 (CCO|ESW|SIS)
 
-Permite somente CCO, ESW ou SIS.
+Permite somente:
 
-2️⃣ Ano
+CCO
+
+ESW
+
+SIS
+
+O operador | representa alternativas.
+
+2. Ano
 202[4-9]
 
-Permite 2024 até 2029.
+Permite somente os anos de 2024 até 2029.
 
-3️⃣ Número
+3. Número
 [0-9]{4}
 
 Exige exatamente quatro algarismos.
 
-{4} é diferente de +: {4} exige quatro, enquanto + permite um ou mais.
+{4} exige exatamente quatro ocorrências, enquanto + significa uma ou mais ocorrências.
 
-4️⃣ Turno
+4. Turno
 (M|T|N)
 
-Permite M, T ou N.
+Permite somente:
 
-5️⃣ Âncoras
+M
+
+T
+
+N
+
+5. Âncoras
 ^
 $
 
-Garantem que não existam caracteres extras antes ou depois da matrícula.
+Garantem que a Regex valide a cadeia inteira.
+
+Assim, caracteres extras não são aceitos.
 
 ✅ Exemplos Válidos
 Código	Resultado
@@ -146,72 +180,115 @@ CCO/2026/0001/M	Separador incorreto
 CCO-2026-0001-X	Turno inexistente
 CCO-2026-0001-M-EXTRA	Caracteres extras
 
-❓ Perguntas
+📝 Novos Casos
+✅ Válidos
+SIS-2028-5678-M
+
+CCO-2025-0042-T
+
+❌ Inválidos
+ESW-2023-1234-M — ano fora do intervalo.
+
+SIS-2026-12345-N — número possui cinco algarismos.
+
+❓ Perguntas para Justificar
 1. Qual parte representa a escolha entre os cursos?
 (CCO|ESW|SIS)
 
-O operador | representa alternativas.
+O operador | representa as alternativas possíveis.
 
 2. Como o ano foi limitado?
 202[4-9]
 
-Assim, somente 2024 a 2029 são aceitos.
+Essa expressão permite somente os anos de 2024 a 2029.
 
 3. Por que usar {4}?
 [0-9]{4}
 
-Porque o número precisa ter exatamente quatro algarismos.
+Porque o número deve possuir exatamente quatro algarismos.
 
 4. Qual é a função de ^ e $?
-Eles garantem que a Regex valide a cadeia inteira.
+^
+$
+
+Eles garantem que a Regex valide a cadeia inteira, impedindo caracteres extras.
 
 5. A Regex permite uma matrícula fora das regras?
-Não. Ela limita o curso, ano, número, turno, separadores e tamanho da cadeia.
+Não.
+
+Ela limita:
+
+o curso;
+
+o ano;
+
+a quantidade de algarismos;
+
+o turno;
+
+os separadores;
+
+o início e o fim da cadeia.
 
 🤖 Desafio Extra — DFA Equivalente
-O DFA lê a matrícula da esquerda para a direita.
+O DFA lê a matrícula da esquerda para a direita, verificando cada bloco na ordem.
 
 🔄 Estados
 Estado	Função
-q0	início
-q1	curso
-q2	hífen após o curso
-q3	ano
-q4	hífen após o ano
-q5	quatro algarismos do número
-q6	hífen após o número
-q7	turno
-q8	aceitação
-qd	estado sumidouro
+q0	Estado inicial
+q1	Curso
+q2	Hífen após o curso
+q3	Ano
+q4	Hífen após o ano
+q5	Quatro algarismos do número
+q6	Hífen após o número
+q7	Turno
+q8	Estado de aceitação
+qd	Estado sumidouro
 
 🌐 Fluxo Simplificado
 → q0
-   ↓ curso
+   │
+   │ Curso
+   ▼
   q1
-   ↓ -
+   │
+   │ -
+   ▼
   q2
-   ↓ ano
+   │
+   │ Ano
+   ▼
   q3
-   ↓ -
+   │
+   │ -
+   ▼
   q4
-   ↓ [0-9]{4}
+   │
+   │ [0-9]{4}
+   ▼
   q5
-   ↓ -
+   │
+   │ -
+   ▼
   q6
-   ↓ M | T | N
+   │
+   │ M | T | N
+   ▼
   q7
-   ↓
+   │
+   ▼
   q8 ★
 
-Qualquer símbolo inválido leva para:
+Qualquer símbolo inválido leva ao estado sumidouro:
 
 qd
 
-E o estado qd permanece nele mesmo:
+O estado qd permanece nele mesmo:
 
 qd → qd
 
-🧠 Como o DFA funciona?
+🧠 Como o DFA Funciona?
 📌 Curso
 Aceita somente:
 
@@ -220,7 +297,7 @@ ESW
 SIS
 
 📅 Ano
-Aceita somente:
+Aceita:
 
 2024
 2025
@@ -230,7 +307,7 @@ Aceita somente:
 2029
 
 🔢 Número
-Exige exatamente:
+Exige exatamente quatro algarismos:
 
 [0-9][0-9][0-9][0-9]
 
@@ -239,13 +316,13 @@ Aceita:
 
 M | T | N
 
-⭐ Aceitação
+⭐ Estado de Aceitação
 q8 é o único estado de aceitação.
 
-Se houver qualquer caractere extra ou inválido, a cadeia vai para qd.
+Se houver qualquer símbolo inválido ou caractere extra, a cadeia vai para qd.
 
 ✅ Conclusão
-A expressão final é:
+A Regex final é:
 
 ^(CCO|ESW|SIS)-202[4-9]-[0-9]{4}-(M|T|N)$
 
@@ -254,3 +331,4 @@ Ela representa:
 CURSO - ANO - NÚMERO - TURNO
 
 e garante que todos os requisitos da matrícula sejam respeitados.
+
