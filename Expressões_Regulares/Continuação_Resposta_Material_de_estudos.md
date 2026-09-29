@@ -101,3 +101,128 @@ Assim, a expressão:
 representa corretamente o formato:
 
 **CURSO - ANO - NÚMERO - TURNO**
+
+
+
+
+
+
+# 🧠 11. Perguntas de Reflexão
+
+---
+
+## 1️⃣ Toda expressão regular formal representa uma linguagem regular?
+
+**Sim.** Na teoria, uma expressão regular é usada justamente para representar uma linguagem regular.
+
+---
+
+## 2️⃣ Toda linguagem regular pode ser representada por uma expressão regular?
+
+**Sim.** Toda linguagem regular pode ser descrita por alguma expressão regular equivalente.
+
+---
+
+## 3️⃣ Qual é a relação entre uma ER, um NFA e um DFA?
+
+Os três conseguem representar as mesmas **linguagens regulares**.
+
+Uma expressão regular pode ser transformada em um **NFA**, e o NFA pode ser transformado em um **DFA**.
+
+```text
+Expressão Regular (ER)
+          ↓
+         NFA
+          ↓
+         DFA
+```
+
+Apesar de serem modelos diferentes, os três possuem o mesmo poder de reconhecimento para linguagens regulares.
+
+---
+
+## 4️⃣ Qual é a diferença entre uma expressão regular teórica e as extensões de motores de programação?
+
+A **expressão regular teórica** segue as regras estudadas na teoria de linguagens formais.
+
+Já as **Regex utilizadas em programas** podem possuir recursos extras, como:
+
+- 🔹 Grupos de captura
+- 🔹 Lookahead
+- 🔹 Lookbehind
+- 🔹 Referências
+- 🔹 Outras extensões específicas de cada motor
+
+Esses recursos não fazem parte da definição básica de expressão regular estudada na teoria.
+
+---
+
+## 5️⃣ Por que um autômato finito reconhece paridade, mas não consegue contar arbitrariamente e comparar duas quantidades sem limite?
+
+Porque um autômato finito possui apenas uma **quantidade limitada de estados**.
+
+Ele consegue controlar situações simples, como saber se a quantidade de símbolos é **par ou ímpar**, porque precisa apenas manter poucas informações.
+
+Porém, não consegue guardar uma quantidade qualquer de símbolos para comparar posteriormente.
+
+> 💡 **Exemplo:** ele consegue identificar se a quantidade de `a` é par ou ímpar, mas não consegue guardar exatamente quantos `a` apareceram para depois comparar com a quantidade de `b`.
+
+---
+
+## 6️⃣ Por que `{aⁿbⁿ | n ≥ 0}` não é regular?
+
+Porque é necessário contar os `a` e depois verificar se a quantidade de `b` é **exatamente a mesma**.
+
+Como um autômato finito possui memória limitada, ele não consegue fazer essa comparação para qualquer valor de `n`.
+
+```text
+aaa → 3 símbolos a
+bbb → 3 símbolos b
+
+Quantidade igual ✅
+```
+
+O problema aparece quando `n` pode crescer indefinidamente, pois seria necessário guardar essa quantidade para fazer a comparação.
+
+---
+
+## 7️⃣ O que muda ao passarmos de linguagens regulares para linguagens livres de contexto?
+
+A principal diferença é que as **linguagens livres de contexto** podem utilizar uma **pilha como memória**.
+
+Isso permite resolver problemas que os autômatos finitos não conseguem, como verificar se a quantidade de `a` é igual à quantidade de `b` em:
+
+```text
+{aⁿbⁿ | n ≥ 0}
+```
+
+De forma simplificada:
+
+```text
+Linguagem Regular
+       ↓
+Autômato Finito
+       ↓
+Memória limitada
+
+
+Linguagem Livre de Contexto
+       ↓
+Autômato com Pilha
+       ↓
+Memória por meio de uma pilha
+```
+
+---
+
+# 📝 Síntese
+
+De forma simples, as **linguagens livres de contexto** conseguem lidar com situações que precisam de mais memória.
+
+No caso de `{aⁿbⁿ}`, é preciso guardar quantos `a` foram lidos para depois comparar com os `b`.
+
+Um **DFA** não consegue fazer isso porque possui apenas uma quantidade limitada de estados.
+
+Já um modelo com **pilha** consegue armazenar essa informação durante a leitura e utilizá-la posteriormente para realizar a comparação.
+
+> 🎯 **Em resumo:** linguagens regulares trabalham com memória limitada, enquanto linguagens livres de contexto conseguem resolver problemas que exigem uma forma adicional de memória, como uma pilha.
