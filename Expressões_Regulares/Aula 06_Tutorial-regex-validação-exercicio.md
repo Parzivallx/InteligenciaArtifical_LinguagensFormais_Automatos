@@ -1,0 +1,132 @@
+# 📧 Atividade Prática – Validação de E-mails
+
+**Disciplina:** Linguagens Formais  
+**Tema:** Expressões Regulares e Validação de E-mails  
+**Linguagem:** Python
+
+---
+
+
+## 🐍 1. Programa em Python
+
+O programa utiliza uma **expressão regular (Regex)** para verificar se os e-mails informados seguem o formato esperado.
+
+```python
+import re
+
+padrao = r"^[A-Za-z0-9._+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"
+
+emails = [
+    "maria@gmail.com",
+    "joao.silva@udf.edu.br",
+    "estudante_01@faculdade.com",
+    "pedro.gmail.com",
+    "ana@dominio"
+]
+
+validos = []
+invalidos = []
+
+for email in emails:
+    if re.fullmatch(padrao, email):
+        validos.append(email)
+    else:
+        invalidos.append(email)
+
+print("E-mails válidos:")
+for email in validos:
+    print(email)
+
+print("\nE-mails inválidos:")
+for email in invalidos:
+    print(email)
+```
+
+---
+
+## 📋 2. Resultado Esperado
+
+### ✅ E-mails Válidos
+
+- `maria@gmail.com`
+- `joao.silva@udf.edu.br`
+- `estudante_01@faculdade.com`
+
+### ❌ E-mails Inválidos
+
+- `pedro.gmail.com`
+- `ana@dominio`
+
+---
+
+## ❌ 3. Explicação dos E-mails Inválidos
+
+| **E-mail** | **Motivo** |
+|---|---|
+| `pedro.gmail.com` | Não possui o caractere `@`. |
+| `ana@dominio` | Não possui uma extensão, como `.com` ou `.br`. |
+
+---
+
+## 🔎 4. Expressão Regular
+
+A expressão regular utilizada foi:
+
+```text
+^[A-Za-z0-9._+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$
+```
+
+### Estrutura do E-mail
+
+```text
+USUÁRIO + @ + DOMÍNIO + . + EXTENSÃO
+```
+
+### Elementos da Regex
+
+| **Elemento** | **Descrição** |
+|---|---|
+| `^[A-Za-z0-9._+-]+` | Define o usuário do e-mail. |
+| `@` | Caractere obrigatório que separa o usuário do domínio. |
+| `[A-Za-z0-9.-]+` | Define o domínio. |
+| `\.` | Representa o ponto antes da extensão. |
+| `[A-Za-z]{2,}` | Define uma extensão com pelo menos 2 letras. |
+| `$` | Indica o final da entrada. |
+
+---
+
+## 📚 5. Relação com Linguagens Formais
+
+A expressão regular define uma **linguagem** formada por e-mails que seguem um determinado padrão.
+
+A estrutura pode ser representada como:
+
+```text
+USUÁRIO + @ + DOMÍNIO + . + EXTENSÃO
+```
+
+Dessa forma, o programa verifica cada entrada e determina se o e-mail **pertence ou não à linguagem definida pela expressão regular**.
+
+---
+
+## ⚙️ 6. Funcionamento do Programa
+
+O programa realiza as seguintes etapas:
+
+1. Importa a biblioteca `re` do Python.
+2. Define a expressão regular utilizada na validação.
+3. Cria uma lista contendo cinco e-mails.
+4. Verifica cada e-mail utilizando `re.fullmatch()`.
+5. Se o e-mail seguir o padrão, ele é armazenado na lista `validos`.
+6. Caso contrário, é armazenado na lista `invalidos`.
+7. Ao final, o programa exibe os e-mails válidos e inválidos.
+
+---
+
+## 🎯 7. Conclusão
+
+O programa recebe cinco e-mails e utiliza uma **expressão regular** para validar cada entrada.
+
+Após a verificação, os e-mails são separados em duas listas: **válidos** e **inválidos**.
+
+A atividade demonstra, na prática, a utilização de **Expressões Regulares** e conceitos de **Linguagens Formais** para realizar a validação de dados.
