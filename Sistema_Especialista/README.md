@@ -39,7 +39,7 @@ Escrevemos quatro regras com base no que vivemos na formação. Elas não foram 
 - **R1:** perfil de acompanhamento com dificuldade em ordem unida → reforço com o instrutor, repetindo até sair em forma.
 - **R2:** perfil de acompanhamento sem dificuldade em ordem unida → instrução supervisionada e revisão dos fundamentos, porque o problema tende a ser a base geral.
 - **R3:** perfil de autonomia com dificuldade em ordem unida → treino específico de ordem unida, sem precisar de acompanhamento constante.
-- **R4:** perfil de autonomia sem dificuldade → auxiliar de instrução ou chefe de grupo, para apoiar os demais.
+- **R4:** perfil de autonomia sem dificuldade → auxiliar de instrução ou cmt de grupo, para apoiar os demais.
 
 ## Os dados
 
