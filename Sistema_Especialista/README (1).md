@@ -2,8 +2,8 @@
 
 > *Treino duro, combate fácil.*
 
-**Integrantes:** ______________________ e ______________________
-**Curso:** ______________________
+**Integrantes:** Emmanuel Ferreira Gomes e João Pedro Reis Rios
+**Curso:** Eng.Software
 **Disciplina:** Inteligência Artificial e LFA
 **Professora:** Kadidja Valéria
 
