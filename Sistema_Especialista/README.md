@@ -66,7 +66,7 @@ Tudo isso está discutido com mais calma no notebook.
 
 ## Como rodar
 
-O jeito mais fácil é abrir o notebook no [Google Colab](https://colab.research.google.com/) e ir em **Ambiente de execução → Executar tudo**. Os dados já estão dentro do notebook, então não precisa carregar o CSV.
+O jeito mais fácil é abrir o notebook no [Google Colab].(https://colab.research.google.com/drive/1DzbOCFovcU8qZ7zqc2FUH98prz_q-r5R#scrollTo=hbgOw1dzyBA7) e ir em **Ambiente de execução → Executar tudo**. Os dados já estão dentro do notebook, então não precisa carregar o CSV.
 
 Se preferir rodar na sua máquina:
 
