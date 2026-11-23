@@ -4,7 +4,7 @@
 
 Trabalho da disciplina **Inteligência Artificial e LFA**, com a Profa. Kadidja Valéria.
 
-**Integrantes:** ______________________ e ______________________
+**Integrantes:** Emmanuel Ferreira Gomes e João Pedro Reis Rios
 
 ## Sobre o projeto
 
