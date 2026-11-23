@@ -3,7 +3,9 @@
 > *Treino duro, combate fácil.*
 
 **Integrantes:** Emmanuel Ferreira Gomes e João Pedro Reis Rios
+
 **Curso:** Eng.Software
+
 **Disciplina:** Inteligência Artificial e LFA
 **Professora:** Kadidja Valéria
 
